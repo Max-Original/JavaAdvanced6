@@ -19,7 +19,7 @@ margin: 10px;
 
  <form action="login" method="post">
 	 
-	 <label for="login">Email :</label><input name="login">
+	 <label for="login">Login :</label><input name="login">
 	 <br>
 	 <label for="password">Password :</label><input name="password">
 	 <br>

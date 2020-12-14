@@ -15,8 +15,8 @@ import hw.domain.UserAccount;
 
 public class UserAccountDaoImpl implements UserAccountDao{
 	
-	private static String CREATE = "insert into user(`email`,`first_name`,`last_name`,`role`,`password`) values (?,?,?,?,?)";
-	private static String READ_BY_ID = "select * from product where id=?";
+	private static String CREATE = "insert into user(`email`,`first_name`,`last_name`,`password`,`role`) values (?,?,?,?,?)";
+	private static String READ_BY_ID = "select * from user where id=?";
 	private static String READ_ALL = "select * from user";
 	private static String DELETE_BY_ID = "delete from user where id=?";
 	private static String UPDATE_BY_ID = "update user set name=?, description = ?, price = ? where id = ?";
@@ -41,8 +41,8 @@ public class UserAccountDaoImpl implements UserAccountDao{
 			preparedStatement.setString(1, user.getEmail());
 			preparedStatement.setString(2, user.getFirstName());
 			preparedStatement.setString(3, user.getLastName());
-			preparedStatement.setString(4, user.getRole());
-			preparedStatement.setString(5, user.getPassword());
+			preparedStatement.setString(4, user.getPassword());
+			preparedStatement.setString(5, user.getRole());
 			preparedStatement.executeUpdate();
 			
 			ResultSet rs = preparedStatement.getGeneratedKeys();

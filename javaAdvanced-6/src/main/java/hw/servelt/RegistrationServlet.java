@@ -20,13 +20,14 @@ public class RegistrationServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		String email = request.getParameter("email");
-		String firstName = request.getParameter("first_name");
-		String lastName = request.getParameter("last_name");
+		String firstName = request.getParameter("firstName");
+		String lastName = request.getParameter("lastName");
 		String password = request.getParameter("password");
 
 		if (!email.isEmpty() && !firstName.isEmpty() && !lastName.isEmpty() && !password.isEmpty()) {
-			userService.creat(new UserAccount(firstName, lastName, email, UserRole.USER.toString(), password));
+			userService.creat(new UserAccount(firstName, lastName, email, password, UserRole.USER.toString()));
 		}
+		
 		
 		
 		request.getRequestDispatcher("login.jsp").forward(request, response);
